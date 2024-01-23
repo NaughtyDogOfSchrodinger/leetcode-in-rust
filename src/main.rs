@@ -31,6 +31,21 @@ mod leetcode_28;
 mod leetcode_125;
 mod leetcode_392;
 mod leetcode_167;
+mod leetcode_11;
+mod leetcode_15;
+mod leetcode_209;
+mod leetcode_30;
+mod leetcode_54;
+mod leetcode_48;
+mod leetcode_73;
+mod leetcode_383;
+mod leetcode_205;
+mod leetcode_290;
+mod leetcode_242;
+mod leetcode_001;
+mod leetcode_202;
+mod leetcode_219;
+
 
 fn main() {
     println!("{:#b}", 2i32);
