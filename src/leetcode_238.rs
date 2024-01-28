@@ -4,7 +4,7 @@ pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
         r[i] = r[i - 1] * nums[i - 1];
     }
     let mut tmp = 1;
-    for i in (0.. nums.len()).rev() {
+    for i in (0..nums.len()).rev() {
         r[i] *= tmp;
         tmp *= nums[i];
     }

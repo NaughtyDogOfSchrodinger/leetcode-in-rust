@@ -32,6 +32,9 @@ mod test {
 
     #[test]
     fn test() {
-        println!("{:?}", str_str("mississippi".to_string(), "issip".to_string()));
+        println!(
+            "{:?}",
+            str_str("mississippi".to_string(), "issip".to_string())
+        );
     }
 }

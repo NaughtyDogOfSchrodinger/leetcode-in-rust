@@ -51,10 +51,12 @@ pub fn multiply(num1: String, num2: String) -> String {
                 move_i += 1;
             }
         }
-        result.into_iter().rev().map(|num| char::from(num + '0' as u8)).collect::<String>()
-
+        result
+            .into_iter()
+            .rev()
+            .map(|num| char::from(num + '0' as u8))
+            .collect::<String>()
     }
-
 }
 
 #[cfg(test)]

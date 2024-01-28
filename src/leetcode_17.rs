@@ -14,15 +14,23 @@ pub fn letter_combinations(digits: String) -> Vec<String> {
                     _ => (base, base + 2),
                 };
                 if r.is_empty() {
-                    (start..=end).into_iter().for_each(|letter| r.push(String::from(char::from(letter))));
+                    (start..=end)
+                        .into_iter()
+                        .for_each(|letter| r.push(String::from(char::from(letter))));
                 } else {
-                    r = r.into_iter().flat_map(|origin| {
-                        (start..=end).into_iter().map(|letter| {
-                            let mut s = String::from(&origin);
-                            s.push(char::from(letter));
-                            s
-                        }).collect::<Vec<String>>()
-                    }).collect::<Vec<String>>()
+                    r = r
+                        .into_iter()
+                        .flat_map(|origin| {
+                            (start..=end)
+                                .into_iter()
+                                .map(|letter| {
+                                    let mut s = String::from(&origin);
+                                    s.push(char::from(letter));
+                                    s
+                                })
+                                .collect::<Vec<String>>()
+                        })
+                        .collect::<Vec<String>>()
                 }
             }
         }
@@ -30,12 +38,9 @@ pub fn letter_combinations(digits: String) -> Vec<String> {
     }
 }
 
-
-
-
 #[cfg(test)]
 mod test {
-    use crate::leetcode_17::{letter_combinations};
+    use crate::leetcode_17::letter_combinations;
 
     #[test]
     fn test() {

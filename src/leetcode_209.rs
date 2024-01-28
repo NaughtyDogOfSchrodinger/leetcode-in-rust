@@ -1,6 +1,12 @@
 pub fn min_sub_array_len(target: i32, nums: Vec<i32>) -> i32 {
     match nums.len() {
-        1 => if nums[0] >= target { 1 } else { 0 },
+        1 => {
+            if nums[0] >= target {
+                1
+            } else {
+                0
+            }
+        }
         len => {
             let mut left = 0;
             let mut min = i32::MAX;
@@ -27,7 +33,9 @@ pub fn min_sub_array_len(target: i32, nums: Vec<i32>) -> i32 {
             }
             if min == i32::MAX {
                 0
-            } else { min }
+            } else {
+                min
+            }
         }
     }
 }

@@ -1,7 +1,6 @@
 pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
-
     fn dfs(path: &mut Vec<i32>, index: usize, result: &mut Vec<Vec<i32>>) {
-        if index == path.len(){
+        if index == path.len() {
             result.push(path.clone());
             return;
         }

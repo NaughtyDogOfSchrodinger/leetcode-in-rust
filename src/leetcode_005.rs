@@ -46,7 +46,10 @@ pub fn longest_palindrome(s: String) -> String {
     }
     let mut index = 0;
     while index < len {
-        while index >= (r + 1) && index + (r + 1) < len && expand_array[index - (r + 1)] == expand_array[index + (r + 1)]{
+        while index >= (r + 1)
+            && index + (r + 1) < len
+            && expand_array[index - (r + 1)] == expand_array[index + (r + 1)]
+        {
             r += 1;
         }
         let center_index = index;
@@ -65,7 +68,7 @@ pub fn longest_palindrome(s: String) -> String {
                 Ordering::Equal => {
                     r = right_border - index;
                     break;
-                },
+                }
             }
             index += 1;
         }

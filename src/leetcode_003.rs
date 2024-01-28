@@ -1,11 +1,11 @@
 use std::cmp::max;
-use std::collections::{HashMap};
+use std::collections::HashMap;
 
 pub fn length_of_longest_substring(s: String) -> i32 {
     if s.is_empty() {
         0
     } else {
-        let mut begin: i32 =-1;
+        let mut begin: i32 = -1;
         let mut end: i32 = 0;
         let mut max_len = 0;
         let mut map: HashMap<char, i32> = HashMap::new();
@@ -20,7 +20,6 @@ pub fn length_of_longest_substring(s: String) -> i32 {
 
         max_len
     }
-
 }
 
 #[cfg(test)]
@@ -29,12 +28,12 @@ mod test {
 
     #[test]
     fn test() {
-        println!("{}",length_of_longest_substring(String::from("abcabcbb")));
-        println!("{}",length_of_longest_substring(String::from("bbbbb")));
-        println!("{}",length_of_longest_substring(String::from("pwwkew")));
-        println!("{}",length_of_longest_substring(String::from(" ")));
-        println!("{}",length_of_longest_substring(String::from("dvdf")));
-        println!("{}",length_of_longest_substring(String::from("cdd")));
-        println!("{}",length_of_longest_substring(String::from("abba")));
+        println!("{}", length_of_longest_substring(String::from("abcabcbb")));
+        println!("{}", length_of_longest_substring(String::from("bbbbb")));
+        println!("{}", length_of_longest_substring(String::from("pwwkew")));
+        println!("{}", length_of_longest_substring(String::from(" ")));
+        println!("{}", length_of_longest_substring(String::from("dvdf")));
+        println!("{}", length_of_longest_substring(String::from("cdd")));
+        println!("{}", length_of_longest_substring(String::from("abba")));
     }
 }

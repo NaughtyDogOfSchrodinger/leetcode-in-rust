@@ -1,4 +1,3 @@
-
 pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
     use std::collections::HashMap;
 
@@ -18,8 +17,8 @@ mod test {
 
     #[test]
     fn test() {
-        println!("{:?}", two_sum(vec![2,7,11,15], 9));
-        println!("{:?}", two_sum(vec![3,2,4], 6));
-        println!("{:?}", two_sum(vec![3,3], 6));
+        println!("{:?}", two_sum(vec![2, 7, 11, 15], 9));
+        println!("{:?}", two_sum(vec![3, 2, 4], 6));
+        println!("{:?}", two_sum(vec![3, 3], 6));
     }
 }

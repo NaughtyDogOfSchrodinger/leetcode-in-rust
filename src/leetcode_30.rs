@@ -1,4 +1,3 @@
-
 // pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {
 //     let mut map = HashMap::new();
 //     let word_len = words[0].len();
@@ -53,9 +52,9 @@ pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {
     let (word_count, word_len) = (words.len(), words[0].len());
     let target_len = word_count * word_len;
     let s_len = s.len();
-    for index  in 0..word_len {
+    for index in 0..word_len {
         if index + target_len > s_len {
-            break
+            break;
         }
         for i in (index..index + target_len).step_by(word_len) {
             tt(&mut map, &s[i..i + word_len], 1);
@@ -68,16 +67,20 @@ pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {
         }
         for i in (index + word_len..s.len() - word_count * word_len + 1).step_by(word_len) {
             tt(&mut map, &s[i - word_len..i], -1); // 移除左边
-            tt(&mut map, &s[i + (word_count - 1) * word_len..i + word_count * word_len], 1); // 添加右边
-            if map.is_empty() {r.push(i as i32)}
+            tt(
+                &mut map,
+                &s[i + (word_count - 1) * word_len..i + word_count * word_len],
+                1,
+            ); // 添加右边
+            if map.is_empty() {
+                r.push(i as i32)
+            }
         }
-
 
         map.clear();
     }
     r
 }
-
 
 #[cfg(test)]
 mod test {
@@ -85,11 +88,54 @@ mod test {
 
     #[test]
     fn test() {
-        println!("{:?}", find_substring("barfoothefoobarman".to_string(), Vec::from(["foo".to_string(), "bar".to_string()])));
-        println!("{:?}", find_substring("wordgoodgoodgoodbestword".to_string(), Vec::from(["word".to_string(), "good".to_string(), "best".to_string(), "word".to_string()])));
-        println!("{:?}", find_substring("barfoofoobarthefoobarman".to_string(), Vec::from(["bar".to_string(), "foo".to_string(), "the".to_string()])));
-        println!("{:?}", find_substring("wordgoodgoodgoodbestword".to_string(), Vec::from(["word".to_string(), "good".to_string(), "best".to_string(), "good".to_string()])));
-        println!("{:?}", find_substring("barfoothefoobarman".to_string(), Vec::from(["foo".to_string(), "bar".to_string()])));
-        println!("{:?}", find_substring("a".to_string(), Vec::from(["a".to_string()])));
+        println!(
+            "{:?}",
+            find_substring(
+                "barfoothefoobarman".to_string(),
+                Vec::from(["foo".to_string(), "bar".to_string()])
+            )
+        );
+        println!(
+            "{:?}",
+            find_substring(
+                "wordgoodgoodgoodbestword".to_string(),
+                Vec::from([
+                    "word".to_string(),
+                    "good".to_string(),
+                    "best".to_string(),
+                    "word".to_string()
+                ])
+            )
+        );
+        println!(
+            "{:?}",
+            find_substring(
+                "barfoofoobarthefoobarman".to_string(),
+                Vec::from(["bar".to_string(), "foo".to_string(), "the".to_string()])
+            )
+        );
+        println!(
+            "{:?}",
+            find_substring(
+                "wordgoodgoodgoodbestword".to_string(),
+                Vec::from([
+                    "word".to_string(),
+                    "good".to_string(),
+                    "best".to_string(),
+                    "good".to_string()
+                ])
+            )
+        );
+        println!(
+            "{:?}",
+            find_substring(
+                "barfoothefoobarman".to_string(),
+                Vec::from(["foo".to_string(), "bar".to_string()])
+            )
+        );
+        println!(
+            "{:?}",
+            find_substring("a".to_string(), Vec::from(["a".to_string()]))
+        );
     }
 }

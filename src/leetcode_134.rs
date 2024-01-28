@@ -7,7 +7,7 @@ pub fn can_complete_circuit(gas: Vec<i32>, cost: Vec<i32>) -> i32 {
             let start = (index + count) % gas.len();
             remain += gas[start] - cost[start];
             if remain < 0 {
-                break
+                break;
             }
             count += 1;
         }
@@ -51,9 +51,8 @@ mod test {
 
     #[test]
     fn test() {
-        let gas = Vec::from([1,2,3,4,5]);
-        let cost = Vec::from([3,4,5,1,2]);
+        let gas = Vec::from([1, 2, 3, 4, 5]);
+        let cost = Vec::from([3, 4, 5, 1, 2]);
         println!("{:?}", can_complete_circuit(gas, cost));
     }
 }
-

@@ -4,7 +4,7 @@ pub fn length_of_last_word(s: String) -> i32 {
     for c in s.chars() {
         if c == ' ' {
             if count == 0 {
-                continue
+                continue;
             } else {
                 r = count;
                 count = 0;
@@ -26,6 +26,9 @@ mod test {
 
     #[test]
     fn test() {
-        println!("{:?}", length_of_last_word("luffy is still joyboy".to_string()));
+        println!(
+            "{:?}",
+            length_of_last_word("luffy is still joyboy".to_string())
+        );
     }
 }

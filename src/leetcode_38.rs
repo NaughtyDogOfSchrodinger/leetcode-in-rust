@@ -5,13 +5,12 @@ pub fn count_and_say(n: i32) -> String {
         "11".to_string()
     } else {
         let pre = count_and_say(n - 1);
-        let arr : Vec<char> = pre.chars().collect();
+        let arr: Vec<char> = pre.chars().collect();
         let len = arr.len();
         let mut r = String::new();
         let mut count: u8 = 1;
 
         let mut index = 1;
-
 
         while index < len {
             while index < len && arr[index - 1] == arr[index] {
@@ -37,7 +36,6 @@ pub fn count_and_say(n: i32) -> String {
                 }
                 index += 1;
             }
-
         }
         r
     }

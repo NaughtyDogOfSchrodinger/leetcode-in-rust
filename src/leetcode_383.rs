@@ -1,6 +1,5 @@
-
 pub fn can_construct(ransom_note: String, magazine: String) -> bool {
-    let mut map = [0u32;26];
+    let mut map = [0u32; 26];
     for char in magazine.chars() {
         let index = char as u8 - 'a' as u8;
         assert!(index >= 0 && index < 26);
@@ -16,7 +15,6 @@ pub fn can_construct(ransom_note: String, magazine: String) -> bool {
     }
     true
 }
-
 
 #[cfg(test)]
 mod test {

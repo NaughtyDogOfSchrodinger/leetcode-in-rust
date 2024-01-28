@@ -1,11 +1,11 @@
 pub fn next_permutation(nums: &mut Vec<i32>) {
     match nums.len() {
-        0 | 1 => {},
+        0 | 1 => {}
         2 => nums.swap(0, 1),
         _ => {
             let last = nums.len() - 1;
             let mut end = last;
-            while end >= 1 && nums[end] <= nums[end - 1]  {
+            while end >= 1 && nums[end] <= nums[end - 1] {
                 end -= 1;
             }
             if end == 0 {
@@ -21,7 +21,6 @@ pub fn next_permutation(nums: &mut Vec<i32>) {
             }
         }
     }
-
 }
 
 #[cfg(test)]

@@ -16,13 +16,13 @@ pub fn my_atoi(s: String) -> i32 {
                 '-' => {
                     native = false;
                     index += 1;
-                },
+                }
                 '+' => {
                     index += 1;
-                },
-                _ => {},
+                }
+                _ => {}
             }
-            while index < c_array.len() && c_array[index] >= '0' && c_array[index] <= '9'{
+            while index < c_array.len() && c_array[index] >= '0' && c_array[index] <= '9' {
                 let n: i8 = if native {
                     c_array[index] as i8 - '0' as i8
                 } else {

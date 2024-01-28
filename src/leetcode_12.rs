@@ -9,7 +9,15 @@
 pub fn int_to_roman(num: i32) -> String {
     let mut x = num;
     let mut r = String::new();
-    let map = [(1000, 'M'), (500, 'D'), (100, 'C'), (50, 'L'), (10, 'X'), (5, 'V'), (1, 'I')];
+    let map = [
+        (1000, 'M'),
+        (500, 'D'),
+        (100, 'C'),
+        (50, 'L'),
+        (10, 'X'),
+        (5, 'V'),
+        (1, 'I'),
+    ];
     for index in [1, 3, 5] {
         let (pre_num, pre_letter) = map[index - 1];
         let (cur_num, cur_letter) = map[index];
@@ -21,18 +29,20 @@ pub fn int_to_roman(num: i32) -> String {
                 r.push(next_letter);
                 r.push(pre_letter);
                 x -= 9 * next_num;
-            },
+            }
             (0, 4) => {
                 r.push(next_letter);
                 r.push(cur_letter);
                 x -= 4 * next_num;
-            },
+            }
             (cur, next) => {
                 if cur != 0 {
                     (0..cur).into_iter().for_each(|_| r.push(cur_letter));
                     x %= cur_num;
                     if x / next_num != 0 {
-                        (0..x / next_num).into_iter().for_each(|_| r.push(next_letter));
+                        (0..x / next_num)
+                            .into_iter()
+                            .for_each(|_| r.push(next_letter));
                         x %= next_num;
                     }
                 } else {
@@ -41,7 +51,7 @@ pub fn int_to_roman(num: i32) -> String {
                         x %= next_num;
                     }
                 }
-            },
+            }
         };
     }
     r

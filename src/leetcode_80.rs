@@ -15,8 +15,6 @@ pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
     slow as i32
 }
 
-
-
 #[cfg(test)]
 mod test {
     use crate::leetcode_80::remove_duplicates;

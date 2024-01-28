@@ -5,7 +5,7 @@ pub fn rotate(nums: &mut Vec<i32>, k: i32) {
 
     let mut count = 0;
     let mut last_read = nums[next];
-    while count < len  {
+    while count < len {
         if count != 0 && next == start {
             start += 1;
             next += 1;
@@ -17,7 +17,6 @@ pub fn rotate(nums: &mut Vec<i32>, k: i32) {
         next = (next + k as usize) % len;
         count += 1;
     }
-
 }
 
 #[cfg(test)]
@@ -26,7 +25,7 @@ mod test {
 
     #[test]
     fn test() {
-        let mut a = Vec::from([-1,-100,3,99]);
+        let mut a = Vec::from([-1, -100, 3, 99]);
         rotate(&mut a, 2);
         println!("{:?}", a);
     }

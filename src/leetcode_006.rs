@@ -9,7 +9,7 @@ pub fn convert(s: String, num_rows: i32) -> String {
             let last_index = (num_rows - 1) as usize;
             let mod_i = i % sum;
             if mod_i > last_index {
-                let index: usize =  last_index - (mod_i - last_index);
+                let index: usize = last_index - (mod_i - last_index);
                 result[index].push(c);
             } else {
                 result[mod_i].push(c);
@@ -17,7 +17,6 @@ pub fn convert(s: String, num_rows: i32) -> String {
         }
         result.iter().flat_map(|s| s.chars()).collect()
     }
-    
 }
 
 #[cfg(test)]
@@ -26,7 +25,13 @@ mod test {
 
     #[test]
     fn test() {
-        assert_eq!("PAHNAPLSIIGYIR".to_string(), convert("PAYPALISHIRING".to_string(), 3));
-        assert_eq!("PINALSIGYAHRPI".to_string(), convert("PAYPALISHIRING".to_string(), 4));
+        assert_eq!(
+            "PAHNAPLSIIGYIR".to_string(),
+            convert("PAYPALISHIRING".to_string(), 3)
+        );
+        assert_eq!(
+            "PINALSIGYAHRPI".to_string(),
+            convert("PAYPALISHIRING".to_string(), 4)
+        );
     }
 }

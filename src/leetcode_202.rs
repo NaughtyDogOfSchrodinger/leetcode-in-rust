@@ -1,6 +1,4 @@
-
 pub fn is_happy(n: i32) -> bool {
-
     fn next(n: i32) -> i32 {
         let mut sum = 0;
         let mut num = n;

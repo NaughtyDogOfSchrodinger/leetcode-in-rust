@@ -1,12 +1,14 @@
 pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
-    let mut r = [-1i32;2];
+    let mut r = [-1i32; 2];
     match nums.len() {
         0 => Vec::from(r),
-        1 => if nums[0] == target {
-            Vec::from([0i32;2])
-        } else {
-            Vec::from(r)
-        },
+        1 => {
+            if nums[0] == target {
+                Vec::from([0i32; 2])
+            } else {
+                Vec::from(r)
+            }
+        }
         len => {
             let mut left = 0;
             let mut right = len - 1;
@@ -16,7 +18,7 @@ pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
             while left < right && nums[right] > target {
                 right -= 1;
             }
-            if left <= right  {
+            if left <= right {
                 if nums[left] == target {
                     r[0] = left as i32;
                 }
@@ -27,7 +29,6 @@ pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
             Vec::from(r)
         }
     }
-
 }
 
 #[cfg(test)]

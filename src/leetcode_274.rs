@@ -13,7 +13,6 @@ pub fn h_index(citations: Vec<i32>) -> i32 {
         ans = i;
     }
     ans as i32
-
 }
 
 #[cfg(test)]
@@ -22,7 +21,7 @@ mod test {
 
     #[test]
     fn test() {
-        let mut a = Vec::from([3,0,6,1,5]);
+        let mut a = Vec::from([3, 0, 6, 1, 5]);
         println!("{}", h_index(a));
     }
 }

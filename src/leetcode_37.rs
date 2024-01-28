@@ -1,7 +1,11 @@
 pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
-
-
-    fn dfs(map: &mut [u16], index: usize, array: &Vec<(usize, usize)>, board: &mut Vec<Vec<char>>, mut end: &mut bool)  {
+    fn dfs(
+        map: &mut [u16],
+        index: usize,
+        array: &Vec<(usize, usize)>,
+        board: &mut Vec<Vec<char>>,
+        mut end: &mut bool,
+    ) {
         if index == array.len() {
             *end = true;
             return;
@@ -25,7 +29,7 @@ pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
             remain_zeros -= bin_count;
         }
     }
-    let mut map = [0u16;27];
+    let mut map = [0u16; 27];
     let mut s = vec![];
     for line in (0..9) {
         for row in (0..9) {
@@ -33,7 +37,7 @@ pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
             if c == '.' {
                 s.push((line, row));
                 continue;
-            } else if c >= '1' && c <='9'{
+            } else if c >= '1' && c <= '9' {
                 let c_n = c as u16 - '0' as u16;
                 let bin_count = 1 << (c_n - 1);
                 let l_index = line;
@@ -43,18 +47,12 @@ pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
                 map[r_index] |= bin_count;
                 map[s_index] |= bin_count;
             }
-
         }
     }
 
     let mut end = false;
     dfs(&mut map, 0, &s, board, &mut end);
 }
-
-
-
-
-
 
 mod test {
     use crate::leetcode_37::solve_sudoku;
@@ -81,9 +79,19 @@ mod test {
         // }
         // println!("{:#b}", 500);
         // println!("{:#b}", 500 >> 2 & 1);
-        let board_true = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]];
+        let board_true = [
+            ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+            ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+            [".", "9", "8", ".", ".", ".", ".", "6", "."],
+            ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+            ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+            ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+            [".", "6", ".", ".", ".", ".", "2", "8", "."],
+            [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+            [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+        ];
         let mut input = vec![];
-        for arr in board_true  {
+        for arr in board_true {
             let mut inner = vec![];
             for c in arr {
                 inner.push(c.chars().next().unwrap());

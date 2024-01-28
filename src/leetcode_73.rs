@@ -41,7 +41,6 @@ pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
     }
 }
 
-
 #[cfg(test)]
 mod test {
     use crate::leetcode_73::set_zeroes;
@@ -55,7 +54,13 @@ mod test {
         // let mut input = vec![vec![1,1,1],vec![1,0,1],vec![1,1,1]];
         // set_zeroes(&mut input);
         // println!("{:?}", input);
-        let mut input = vec![vec![8, 3, 1, 4, 6, 4, 0, 3, 4], vec![9, 1, 3, 0, 1, 5, 7, 4, 1], vec![2, 2, 5, 2147483647, 5, 4, 4, 3, 8], vec![4, 9, 7, 0, 3, 6, 9, 5, 9], vec![4, 1, 8, 8, 4, 1, 5, 7, 6]];
+        let mut input = vec![
+            vec![8, 3, 1, 4, 6, 4, 0, 3, 4],
+            vec![9, 1, 3, 0, 1, 5, 7, 4, 1],
+            vec![2, 2, 5, 2147483647, 5, 4, 4, 3, 8],
+            vec![4, 9, 7, 0, 3, 6, 9, 5, 9],
+            vec![4, 1, 8, 8, 4, 1, 5, 7, 6],
+        ];
         set_zeroes(&mut input);
         println!("{:?}", input);
     }

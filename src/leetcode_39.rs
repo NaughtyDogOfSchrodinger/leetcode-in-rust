@@ -1,6 +1,12 @@
-
 pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-    fn dfs(sorted: &Vec<i32>, target: i32, sum: i32, index: usize, mut path: &mut Vec<i32>, mut result: &mut Vec<Vec<i32>>) {
+    fn dfs(
+        sorted: &Vec<i32>,
+        target: i32,
+        sum: i32,
+        index: usize,
+        mut path: &mut Vec<i32>,
+        mut result: &mut Vec<Vec<i32>>,
+    ) {
         if sum == target {
             result.push(path.clone());
         } else if sum > target {
@@ -13,7 +19,11 @@ pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
             }
         }
     }
-    let mut sorted: Vec<i32> = candidates.iter().filter(|&item| *item <= target).map(|item| *item).collect();
+    let mut sorted: Vec<i32> = candidates
+        .iter()
+        .filter(|&item| *item <= target)
+        .map(|item| *item)
+        .collect();
     sorted.sort();
     let mut path = Vec::with_capacity(150);
     let mut result = Vec::new();
@@ -21,14 +31,12 @@ pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
     result
 }
 
-
-
 #[cfg(test)]
 mod test {
     use crate::leetcode_39::combination_sum;
 
     #[test]
     fn test() {
-        println!("{:?}", combination_sum(Vec::from([2,3,6, 7]), 7));
+        println!("{:?}", combination_sum(Vec::from([2, 3, 6, 7]), 7));
     }
 }
