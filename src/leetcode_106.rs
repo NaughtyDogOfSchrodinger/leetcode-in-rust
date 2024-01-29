@@ -18,7 +18,7 @@ pub fn build_tree(inorder: Vec<i32>, postorder: Vec<i32>) -> Option<Rc<RefCell<T
                 right: None,
             })));
         }
-        if start > end || root_index < 0 {
+        if start > end {
             return None;
         }
         let val = postorder[root_index];

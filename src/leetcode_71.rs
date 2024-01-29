@@ -33,7 +33,6 @@ pub fn simplify_path(path: String) -> String {
     match stack.len() {
         0 => "/".to_string(),
         len => (0..len)
-            .into_iter()
             .flat_map(|i| ['/'].iter().chain(stack[i].iter()))
             .collect::<String>(),
     }

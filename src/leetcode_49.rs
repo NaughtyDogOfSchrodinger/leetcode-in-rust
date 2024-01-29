@@ -5,7 +5,7 @@ pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
         let mut r = [0; 26];
         s.chars().for_each(|c| {
             let num = c as u8 - 'a' as u8;
-            assert!(num >= 0 && num <= 25);
+            assert!(num <= 25);
             r[num as usize] += 1;
         });
         r
@@ -28,7 +28,7 @@ pub fn group_anagrams1(strs: Vec<String>) -> Vec<Vec<String>> {
                 s.chars()
                     .map(|c| {
                         let num = c as u8 - 'a' as u8;
-                        assert!(num >= 0 && num <= 25);
+                        assert!(num <= 25);
                         1 << (num << 2)
                     })
                     .sum::<u128>(),

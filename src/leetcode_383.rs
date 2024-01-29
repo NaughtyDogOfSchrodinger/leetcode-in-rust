@@ -2,7 +2,7 @@ pub fn can_construct(ransom_note: String, magazine: String) -> bool {
     let mut map = [0u32; 26];
     for char in magazine.chars() {
         let index = char as u8 - 'a' as u8;
-        assert!(index >= 0 && index < 26);
+        assert!(index < 26);
         map[index as usize] += 1;
     }
     for char in ransom_note.chars() {

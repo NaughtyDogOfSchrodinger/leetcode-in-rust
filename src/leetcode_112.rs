@@ -3,20 +3,16 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 pub fn has_path_sum(root: Option<Rc<RefCell<TreeNode>>>, target_sum: i32) -> bool {
-    fn has_path_sum(root: &Option<Rc<RefCell<TreeNode>>>, sum: i32, target_sum: i32) -> bool {
-        match root {
-            None => sum == target_sum,
-            Some(node) => {
-                let borrow = node.borrow();
-                has_path_sum(&borrow.left, sum + borrow.val, target_sum)
-                    || has_path_sum(&borrow.right, sum + borrow.val, target_sum)
+    match root {
+        None => false,
+        Some(node) => {
+            let mut bo = node.borrow_mut();
+            if bo.left.is_none() && bo.right.is_none() {
+                return target_sum == bo.val;
             }
+            has_path_sum(bo.left.take(), target_sum - bo.val)
+                || has_path_sum(bo.right.take(), target_sum - bo.val)
         }
-    }
-    if root.is_none() {
-        false
-    } else {
-        has_path_sum(&root, 0, target_sum)
     }
 }
 

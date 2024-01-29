@@ -1,9 +1,9 @@
 pub fn insert(intervals: Vec<Vec<i32>>, new_interval: Vec<i32>) -> Vec<Vec<i32>> {
-    fn has_inter(a: &Vec<i32>, b: &Vec<i32>) -> bool {
+    fn has_inter(a: &[i32], b: &[i32]) -> bool {
         a[1] >= b[0] && b[1] >= a[0]
     }
 
-    fn union(a: &Vec<i32>, b: &Vec<i32>) -> Vec<i32> {
+    fn union(a: &[i32], b: &[i32]) -> Vec<i32> {
         vec![
             if a[0] < b[0] { a[0] } else { b[0] },
             if a[1] > b[1] { a[1] } else { b[1] },

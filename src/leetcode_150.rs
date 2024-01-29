@@ -10,7 +10,7 @@ pub fn eval_rpn(tokens: Vec<String>) -> i32 {
                 continue;
             }
             let num = c as u8 - '0' as u8;
-            assert!(num >= 0 && num <= 9);
+            assert!(num <= 9);
             sum = sum * 10 + num as i32 * multi;
         }
         sum
